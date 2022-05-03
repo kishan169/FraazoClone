@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
     <link rel="stylesheet" href="common.css">
     <title>Fraazo Buy Fruites & Vegetables Online</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     
 </head>
 <body>
@@ -39,7 +41,20 @@
 
         <!-- --------------------------------------------------SLIDER ADWERTISEMENT------------------------------------------------------------ -->
         <div id = "slider_window">
-            <img src = "https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/2312.png?1651429346"/>
+            <!-- <img src = "https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/2312.png?1651429346"/> -->
+
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/2336.png?1651525667" alt=""></div>
+                <div class="swiper-slide"><img src="https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/2459.png?1651525525" alt=""></div>
+                <div class="swiper-slide"><img src="https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/2460.png?1651525594" alt=""></div>
+                <div class="swiper-slide"><img src="https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/2166.png?1651056728" alt=""></div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
 
             <!-- Need to Merge Slider Window Here and its down side slider button-->
         </div>
@@ -238,4 +253,23 @@
 
     <!-- ------------------------------------------------------------------------------------------------------------------ -->
 </body>
+
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+
 </html>
+
+<script>
+    var swiper = new Swiper('.swiper', {
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+
+        pagination: {
+        el: '.swiper-pagination',
+        clickable : true,
+        },
+
+    });
+</script>
