@@ -73,25 +73,84 @@
 
 #masterCard {
   display: flex;
-  width: 85%;
+  width: 95%;
   height: auto;
   margin: auto;
-  margin-top: 65px;
-  border: 1px solid black;
+  margin-top: 20px;
+  /* border: 1px solid black; */
   gap: 20px;
   margin-bottom: 200px;
+  padding: 10px;
+}
+.billTag {
+  background-color: white;
+  font-size: 22px;
+  color: black;
+  font-weight: 400;
 }
 .subMaster {
   margin: auto;
-  border: red 1px solid;
-  height: 100%;
+  /* border: red 1px solid; */
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  height: 180px;
   width: 60%;
+  margin-top: 10px;
+  padding: 10px;
 }
 .subMaster1 {
   margin: auto;
   border: blue 1px solid;
   height: 100%;
   width: 40%;
+}
+#delivery {
+  display: flex;
+  margin: auto;
+  gap: 0px;
+  /* border: 1px green solid; */
+  margin-top: 10px;
+  width: 100%;
+  height: 120px;
+}
+#delivery1 {
+  background-color: lightgrey;
+  border: 1.3px solid darkgrey;
+  border-radius: 10px;
+  width: 40%;
+  height: auto;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+  margin-left: 5px;
+}
+
+#delivery1 > div:nth-child(1) {
+  background-color: lightgray;
+  font-size: 16px;
+  color: black;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#delivery1 > div:nth-child(2) {
+  background-color: lightgray;
+  margin-bottom: 15px;
+}
+
+#delivery2 {
+  border: 1.3px solid darkgrey;
+  border-radius: 10px;
+  width: 60%;
+  height: auto;
+  padding: 5px;
+  margin: 10px;
+}
+#delivery2 > div {
+  text-align: center;
+  font-size: 16px;
+  color: black;
+  font-weight: 500;
+  margin-top: 20px;
 }
 
 /* right card */
