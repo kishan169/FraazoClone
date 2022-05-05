@@ -30,8 +30,57 @@
         </div>
         <div><i class="fa-solid fa-cart-shopping-fast"></i>Carts</div>
         <div><i class="fa-solid fa-wallet"></i>Credits</div>
-        <div><i class="fa-solid fa-user"></i>User</div>
+        <div><i class="fa-solid fa-user"></i><span id="user">Login</span></div>
     </div>
+    <!-- xxxxxxxxxxxxxxxx  LOGIN XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+    <div class="signup-cont">
+        <button id="close-btn">&times;</button>
+        <div class="login-body">
+            <h2>Welcome to Fraazo!</h2> 
+            <p>Sign In to track your Order and More.</p>
+            <p id="upMobileText"></p>
+            <input type="text" placeholder="Enter your Mobile Number" id="number">
+            <p>We will send you an OTP on this number</p>
+            <button id="get-otp">Get OTP</button>
+        </div>
+    </div>
+    <div id="overlay" class=""></div>
+
+    <div class="otp-container">
+        <button id="close-btn2">&times;</button>
+        <div class="login-body">
+            <h2>Welcome to Fraazo!</h2> 
+            <p>Sign In to track your Order and More.</p>
+            <p id="upMobileText"></p>
+            <input type="text" placeholder="Enter 6-Digit OTP" id="fill-otp">
+            <p>OTP has been sent to <span id="spana"></span> <br>
+                Haven't received your OTP yet?</p>
+            <button id="check-otp">Continue</button>
+        </div>
+    </div>
+
+    <div class="customer-info">
+        <button id="close-btn3">&times;</button>
+        <h2>Hello New Customer</h2>
+        <p>Register now for Unbelievable Discounts.</p>
+        <form id="info-form">
+            <div id="names-div">
+                <input type="text" placeholder="First Name" id="firstName">
+                <input type="text" placeholder="Last Name" id="lastName">
+            </div>
+            <input type="email" placeholder="Email id" id="email">
+            <input type="number" placeholder="Mobile No." id="mobileNumber">
+            <div id="status">
+                <label for="title">Title :  <label for="m">Mr.</label> </label> <input type="radio" id="mr" name="title" >  <label for="mrs">Mrs.</label> <input type="radio" id="mrs" name="title" > <label for="miss">Miss</label> <input type="radio" id="miss" name="title" >
+            </div>
+            <input type="submit" id="final-submit">
+        </form>
+        
+        
+    </div>
+
+    <!-- xxxxxxxxxxxxxxxx  LOGIN XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
 
     <!-- ----------------------------------------------------DASHBOARD PHOTOS----------------------------------------------------------------- -->
 
@@ -272,4 +321,92 @@
         },
 
     });
+            // xxxxxxxxxxxxxxxxxxxxxx  Login xxxxxxxxxxxxxxxxxxxxxxxxxx
+
+    
+var otp = 123456 ;
+localStorage.setItem("loginOpt",otp)
+
+var out = document.querySelector(".signup-cont") ;
+out.style.display = "none";
+
+var out2 = document.querySelector(".otp-container") ;
+out2.style.display = "none";
+
+var out3 = document.querySelector(".customer-info") ;
+out3.style.display = "none";
+
+
+
+document.querySelector("#user").addEventListener("click",function(){
+    out.style.display = "block"
+    document.querySelector(".signup-cont").classList.add("active") ;
+    document.querySelector("#overlay").classList.add("active") ;
+    
+})
+            // XXXXXXX CLOSE BTN XXXXXXXXXX
+document.querySelector("#close-btn").addEventListener("click",function(){
+    document.querySelector(".signup-cont").classList.remove("active") ;
+    document.querySelector("#overlay").classList.remove("active") ;
+    out.style.display = "none";
+})
+document.querySelector("#close-btn2").addEventListener("click",function(){
+    document.querySelector(".otp-container").classList.remove("active") ;
+    document.querySelector("#overlay").classList.remove("active") ;
+    out2.style.display = "none";
+})
+document.querySelector("#close-btn3").addEventListener("click",function(){
+    document.querySelector(".customer-info").classList.remove("active") ;
+    document.querySelector("#overlay").classList.remove("active") ;
+    out3.style.display = "none";
+})
+
+document.querySelector("#get-otp").addEventListener("click",function(){
+     mobileNum = document.querySelector("#number").value ;
+    console.log(mobileNum)
+    out.style.display = "none";
+    out2.style.display = "block"
+    document.querySelector(".otp-container").classList.add("active") ;
+    document.querySelector("#spana").innerText = mobileNum ;
+    
+})
+
+document.querySelector("#check-otp").addEventListener("click",function(){
+    var filledotp = document.querySelector("#fill-otp").value ;
+    console.log(filledotp) ;
+    if(filledotp == otp){
+        alert("Login Sucessfull") ;
+        out2.style.display = "none" ;
+        out3.style.display = "block"
+        document.querySelector(".customer-info").classList.add("active") ;
+        document.querySelector("#mobileNumber").value = mobileNum ;
+    }
+    else{
+        alert("Incorrect OTP")
+    }
+})
+
+var infoForm = document.querySelector("#info-form")  ;
+infoForm.addEventListener("submit",function(){
+    event.preventDefault();
+    var customerInfo = {
+        firstName : infoForm.firstName.value ,
+        lastName : infoForm.lastName.value ,
+        email : infoForm.email.value ,
+        mobileNumber : infoForm.mobileNumber.value,
+    }
+    console.log(customerInfo)
+    localStorage.setItem("clintInfo",JSON.stringify(customerInfo)) ;
+    document.querySelector("#user").innerText = customerInfo.firstName ;
+    document.querySelector("#overlay").classList.remove("active") ;
+    out3.style.display = "none";
+
+})
+
+var clintInformation = JSON.parse(localStorage.getItem("clintInfo")) ;
+console.log(clintInformation)     
+if(clintInformation != null) {
+    document.querySelector("#user").innerText = clintInformation.firstName ;
+}   
+
 </script>
