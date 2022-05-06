@@ -32,7 +32,7 @@
             padding: 8px;
             border-radius: 30px;
             margin: auto;
-            border: 1px solid gray;
+            border: 0.5px solid gray;
             position: relative;
         }
 
@@ -129,7 +129,7 @@
             border-radius: 4px;
             padding: 0px 8px 4px 8px;
         }
-        #mangoes,#vegetables{
+        #mangoes,#vegetables,#kitchen{
             width: 90%;
             display: grid;
             grid-template-columns: repeat(5,1fr);
@@ -137,7 +137,7 @@
             margin: auto;
             
         }
-
+        /* -------------------------------------------------------For mangoes---------------------------------------------------------------- */
         #mangoes>div{
             border: 1px solid rgb(236, 235, 235);
             /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
@@ -197,7 +197,7 @@
             cursor: pointer;
         }
 
-        /* ----------------------------------------------------------------------------------------------------------------------------------- */
+        /* -------------------------------------------------------For Vegetables---------------------------------------------------------------- */
 
         #vegetables>div{
             border: 1px solid rgb(236, 235, 235);
@@ -253,6 +253,68 @@
         }
     
         #vegetables > div > div > div > button:hover{
+            color: white;
+            background-color: #4FBB90;
+            cursor: pointer;
+        }
+
+
+         /* -------------------------------------------------------For Kitchen Staples---------------------------------------------------------------- */
+
+         #kitchen>div{
+            border: 1px solid rgb(236, 235, 235);
+            /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+            border-radius: 10px;
+        }
+        #kitchen>div>img{
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            background-color: rgb(245, 243, 243);
+        }
+        #kitchen>div>div{
+            margin: auto;
+            width: 95%;
+        }
+        #kitchen > div > div > p:nth-child(1){
+            min-height: 40px;
+        }
+        
+        #kitchen> div > div > p:nth-child(2){
+            margin-bottom: -25px;
+            font-size: 14px;
+        }
+    
+        #kitchen > div > div > div{
+            display: flex;
+            margin-bottom: -15px;
+            align-items: center;
+            justify-content: space-between;
+        }
+    
+        #kitchen > div > div > div > h5{
+            min-width: 15%;
+            font-size: 16px;
+        }
+    
+        #kitchen > div > div > div > h5:first-child{
+            color: black;
+        }
+        
+        #kitchen > div > div > div > h5:nth-child(2){
+            text-decoration: line-through
+        }
+    
+        #kitchen > div > div > div > button{
+            width: 25%;
+            height: 30px;
+            border: 1.5px solid #4FBB90;
+            background-color: transparent;
+            color: #4FBB90;
+            border-radius: 15px;
+        }
+    
+        #kitchen > div > div > div > button:hover{
             color: white;
             background-color: #4FBB90;
             cursor: pointer;

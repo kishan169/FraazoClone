@@ -145,6 +145,10 @@
     
     <h1>KITCHEN STAPLES</h1>
     <hr>
+    <div class = "left_right">
+        <div><button onClick = "PluskitchenLeft()">&lt;</button></div>
+        <div><button onClick = "PluskitchenRight()">&gt;</button></div>
+    </div>
     <div id = "kitchen">
         <!-- Need to add kitchen list -->
     </div>
@@ -349,8 +353,8 @@
    
     var left = 0; 
     var right = 5;
-
-    function PlusLeft(){
+// --------------------------------------------------For Mangoes--------------------------------------------------------//
+function PlusLeft(){
       right = right - 1;
       left = left - 1;
 
@@ -366,7 +370,7 @@
       
   }
 
-  function PlusRight(){
+function PlusRight(){
       right = right + 1;
       left = left + 1;
 
@@ -383,9 +387,9 @@
       
   }
   
-  DisplayData(mangoesData,left,right);
+DisplayData(mangoesData,left,right);
 
-     function DisplayData(arr,left,right){   
+function DisplayData(arr,left,right){   
       
         document.querySelector("#mangoes").innerHTML = null;
             for(var i = left ; i<right ; i++){
@@ -434,6 +438,7 @@
 
      }
 
+// --------------------------------------------------For Vegetables------------------------------------------------------//
 var dailyData = JSON.parse(localStorage.getItem("dailyArr"));
 
 function PlusVegLeft(){
@@ -523,5 +528,109 @@ function DailyVegData(arr,left,right){
        }
 
    }
-        
+
+// --------------------------------------------------For DryFruites------------------------------------------------------//
+
+var dryData = JSON.parse(localStorage.getItem("dryfruitsArr"));
+
+
+
+
+
+KitchenSteplesData(kitchenData,left,right)
+
+// --------------------------------------------------For KitchenStaples------------------------------------------------------//
+
+var kitchenData = JSON.parse(localStorage.getItem("kitchenDalArr"))
+console.log(kitchenData);
+
+function PluskitchenLeft(){
+      right = right - 1;
+      left = left - 1;
+
+      if(left < 0){
+          left = 0;
+          right = 5;
+          
+          KitchenSteplesData(kitchenData,left,right)
+      }else
+      {
+        // console.log(right,left) ;
+      
+        KitchenSteplesData(kitchenData,left,right)
+      }
+      
+  }
+
+function PluskitchenRight(){
+      right = right + 1;
+      left = left + 1;
+
+      if(right>kitchenData.length){
+          right = kitchenData.length;
+          left = kitchenData.length-5
+          
+          KitchenSteplesData(kitchenData,left,right)
+      }
+      else{
+
+     // console.log(right,left) ;
+      
+     KitchenSteplesData(kitchenData,left,right)
+      }
+      
+  }
+
+KitchenSteplesData(kitchenData,left,right)
+
+function KitchenSteplesData(arr,left,right){   
+      
+      document.querySelector("#kitchen").innerHTML = null;
+          for(var i = left ; i<right ; i++){
+
+          var box = document.createElement("div");
+
+          var pimg = document.createElement("img");
+          pimg.src = arr[i].img;
+
+          var pname = document.createElement("p");
+          pname.innerText = arr[i].name;
+
+          var pquantity = document.createElement("p");
+          pquantity.innerText = arr[i].quantity;
+
+          var pprice = document.createElement("h5");
+          pprice.innerText = "₹" + arr[i].price;
+          pprice.style.fontSize = "16px";
+
+          var pstrike_price = document.createElement("h5");
+          if (arr[i].strike_price == "") {
+              pstrike_price.innerText = arr[i].strike_price;
+          }
+          else {
+              pstrike_price.innerText = "₹" + arr[i].strike_price;
+          }
+
+          var cart = document.createElement("button");
+          cart.innerText = "ADD";
+          cart.addEventListener("click", function () {
+              Add(arr[i]);
+          })
+
+          var boxin = document.createElement("div");
+
+          var pricestore = document.createElement("div");
+
+          pricestore.append(pprice, pstrike_price, cart)
+
+          boxin.append(pname, pquantity, pricestore)
+
+          box.append(pimg, boxin);
+
+          document.querySelector("#kitchen").append(box);
+       }
+
+   }
+
+
 </script>
