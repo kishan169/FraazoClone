@@ -74,6 +74,10 @@
     <h1>Best Deals</h1>
     <hr>
     <div id = "best-deals">
+        <div class = "left_right">
+            <div><button onClick = "PlusBestLeft()">&lt;</button></div>
+            <div><button onClick = "PlusBestRight()">&gt;</button></div>
+        </div>
         
     </div>
 
@@ -303,69 +307,227 @@
 
     });
 
-    var mangoesData = [
-        {
-            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/329/original/data?1616795305",
-            name: "Alphonso Mango Devgad",
-            quantity: "6 pcs",
-            price: 479,
-            strike_price: 600
-        },
-        {
-            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/135/original/data?1612689931",
-            name: "Mango Badami",
-            quantity: "1 kg",
-            price: 129,
-            strike_price: ""
-        },
-        {
-            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/images/images/000/004/597/original/data?1647577454",
-            name: "Mango Totapuri Raw",
-            quantity: "1 kg",
-            price: 110,
-            strike_price: ""
-        },
-        {
-            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/250/original/data?1621065378",
-            name: "Mango Lalbhag Sindhura",
-            quantity: "1 kg",
-            price: 110,
-            strike_price: ""
-        },
-        {
-            img: "https://fraazo-master.s3.ap-south-1.amazonaws.com/products/VMAN12.png",
-            name: "Mango Raw",
-            quantity: "250 g",
-            price: 14,
-            strike_price: ""
-        },
-        {
-            img: "https://fraazo-master.s3.ap-south-1.amazonaws.com/products/FKES1.png",
-            name: "Mango Kesar",
-            quantity: "1 kg",
-            price: 209,
-            strike_price: ""
-        },
-        {
-            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/339/original/data?1620237313",
-            name: "Alphonso Mango Devgad (2 x 6 pcs)",
-            quantity: "1 Dozen",
-            price: 949,
-            strike_price: 1200
-        },
-        {
-            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/images/images/000/007/294/original/data?1650906368",
-            name: "Mango Mallika",
-            quantity: "1 kg",
-            price: 167,
-            strike_price: ""
-        }
-
-    ]
+    
    
     var left = 0; 
     var right = 5;
-// --------------------------------------------------For Mangoes--------------------------------------------------------//
+// --------------------------------------------------------For Best Deals----------------------------------------------------------------------//
+
+var bestdealArr = [
+        {
+            img: "https://fraazo-master.s3.ap-south-1.amazonaws.com/products/VGAV12.png",
+            name: "Beans Cluster (Gavar)",
+            quantity: "250 g",
+            price: 12,
+            strike_price: 16
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/images/images/000/006/605/original/data?1649242645",
+            name: "Tomato (1 kg)",
+            quantity: "1 kg",
+            price: 42,
+            strike_price: 45
+        },
+        {
+            img: "https://fraazo-master.s3.ap-south-1.amazonaws.com/products/VARB12.png",
+            name: "Arbi(Colocasia)",
+            quantity: "500 g",
+            price: 35,
+            strike_price: ""
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/012/original/data?1595253652",
+            name: "Baby Potato",
+            price: 21,
+            quantity: "500 g",
+            strike_price: "",
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/381/original/data?1624199604",
+            name: "Banana Flower",
+            price: 24,
+            quantity: " 1 pc",
+            strike_price: "",
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/389/original/data?1624874955",
+            name: "Fresh Salad Combo (250G Carrot + 500 G Cucumber)",
+            price: 31,
+            quantity: "1 unit",
+            strike_price: 36,
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/390/original/data?1624895924",
+            name: "Mixed Capsicum Combo (1 Pc Capsicum Red + 1 Pc Capsicum Yellow)",
+            price: 104,
+            quantity: "1 unit",
+            strike_price: 107,
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/003/250/original/data?1642167498",
+            name: "Lemon(100g) / Nimboo / Nibu",
+            quantity: "100g",
+            price: 19,
+            strike_price: 26
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/003/163/original/data?1640321543",
+            name: "Special Offer Coriander",
+            quantity: "1 unit",
+            price: 4,
+            strike_price: 13
+        },
+        {
+            img: "https://fraazo-master.s3.ap-south-1.amazonaws.com/products/VAWL11.png",
+            name: "Amla",
+            quantity: "250 g",
+            price: 42,
+            strike_price: ""
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/417/original/data?1628778604",
+            name: "Aloevera",
+            quantity: "1 pc ",
+            price: 13,
+            strike_price: ""
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/003/263/original/data?1642176073",
+            name: "Cashew & Kismis Combo Pack (Cashew 100gm + Kismis 200gm)",
+            quantity: "1 unit-300 g",
+            price: 149,
+            strike_price: 246
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/579/original/data?1635086198",
+            name: "Cashew 500gms (Pack of 5*100gms)",
+            quantity: "500 g",
+            price: 450,
+            strike_price: 830
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/598/original/data?1635146504",
+            name: "Dry Dates - 400gms (Pack of 2*200gms)",
+            quantity: "400 g",
+            price: 135,
+            strike_price: 184
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/581/original/data?1635086887",
+            name: "Cashew Tukda 200gms (Pack of 2*100gms)",
+            quantity: "200 g",
+            price: 167,
+            strike_price: 236
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/000/582/original/data?1635086999",
+            name: "Cashew Tukda 500gms (Pack of 5*100gms)",
+            quantity: "500 g",
+            price: 415,
+            strike_price: 590
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/003/435/original/data?1643108708",
+            name: "Maya Besan 500G",
+            quantity: "500 g",
+            price: 54,
+            strike_price: 59
+        },
+        {
+            img: "https://s3.ap-south-1.amazonaws.com/fraazo-prod/products/product_images/000/003/443/original/data?1643108726",
+            name: "Maya Maida 500G",
+            quantity: "500 g",
+            price: 27,
+            strike_price: 31
+        }];
+
+function PlusBestLeft(){
+      right = right - 1;
+      left = left - 1;
+
+      if(left < 0){
+          left = 0;
+          right = 5;
+          BestDealData(bestdealArr,left,right);
+      }
+      else
+      {
+        BestDealData(bestdealArr,left,right);
+      }
+      
+  }
+ 
+function PlusBestRight(){
+      right = right + 1;
+      left = left + 1;
+
+      if(right>bestdealArr.length){
+          right = bestdealArr.length;
+          left = bestdealArr.length-5
+          BestDealData(bestdealArr,left,right);
+          
+      }
+      else
+      {
+        BestDealData(bestdealArr,left,right);
+      }
+      
+  }
+ BestDealData(bestdealArr,left,right);
+
+ function BestDealData(arr,left,right){   
+      
+      document.querySelector("#best-deals").innerHTML = null;
+          for(var i = left ; i<right ; i++){
+
+          var box = document.createElement("div");
+
+          var pimg = document.createElement("img");
+          pimg.src = arr[i].img;
+
+          var pname = document.createElement("p");
+          pname.innerText = arr[i].name;
+
+          var pquantity = document.createElement("p");
+          pquantity.innerText = arr[i].quantity;
+
+          var pprice = document.createElement("h5");
+          pprice.innerText = "₹" + arr[i].price;
+          pprice.style.fontSize = "16px";
+
+          var pstrike_price = document.createElement("h5");
+          if (arr[i].strike_price == "") {
+              pstrike_price.innerText = arr[i].strike_price;
+          }
+          else {
+              pstrike_price.innerText = "₹" + arr[i].strike_price;
+          }
+
+          var cart = document.createElement("button");
+          cart.innerText = "ADD";
+          cart.addEventListener("click", function () {
+              Add(arr[i]);
+          })
+
+          var boxin = document.createElement("div");
+
+          var pricestore = document.createElement("div");
+
+          pricestore.append(pprice, pstrike_price, cart)
+
+          boxin.append(pname, pquantity, pricestore)
+
+          box.append(pimg, boxin);
+
+          document.querySelector("#best-deals").append(box);
+       }
+
+   }
+
+// --------------------------------------------------------For Mangoes----------------------------------------------------------------------//
+var mangoesData = JSON.parse(localStorage.getItem("mangoesArr"))
+
+
 function PlusLeft(){
       right = right - 1;
       left = left - 1;
@@ -398,6 +560,7 @@ function PlusRight(){
       }
       
   }
+ 
   
 DisplayData(mangoesData,left,right);
 
@@ -450,7 +613,7 @@ function DisplayData(arr,left,right){
 
      }
 
- // --------------------------------------------------For Fruites------------------------------------------------------//
+ // ------------------------------------------------------------For Fruites-----------------------------------------------------------------//
 
  var fruiteData = [
         {
@@ -613,7 +776,7 @@ function DisplayData(arr,left,right){
        }
 
    }
-// --------------------------------------------------For Vegetables------------------------------------------------------//
+// -----------------------------------------------------------For Vegetables----------------------------------------------------------------//
 var dailyData = JSON.parse(localStorage.getItem("dailyArr"));
 
 function PlusVegLeft(){
@@ -705,7 +868,7 @@ function DailyVegData(arr,left,right){
 
    }
 
-// --------------------------------------------------For KitchenStaples------------------------------------------------------//
+// -----------------------------------------------------------For KitchenStaples-------------------------------------------------------------//
 
 var herbsData = JSON.parse(localStorage.getItem("herbsArr"))
 
@@ -797,7 +960,7 @@ function PlusHerbsRight(){
 
    }
 
-// --------------------------------------------------For DryFruites------------------------------------------------------//
+// ------------------------------------------------------------For DryFruites-----------------------------------------------------------------//
 
 var dryData = JSON.parse(localStorage.getItem("dryfruitsArr"));
 
@@ -890,7 +1053,7 @@ function DryfruitesData(arr,left,right){
    }
 
 
-// --------------------------------------------------For KitchenStaples------------------------------------------------------//
+// ------------------------------------------------------------For KitchenStaples-------------------------------------------------------------//
 
 var kitchenData = JSON.parse(localStorage.getItem("kitchenDalArr"))
 console.log(kitchenData);
