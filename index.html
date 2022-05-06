@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
     <link rel="stylesheet" href="common.css">
-    <title>Fraazo Buy Fruites & Vegetables Online</title>
+    <title>Fraazo | Buy Fruites & Vegetables Online</title>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     
@@ -28,7 +28,7 @@
             <i class="fa-solid fa-magnifying-glass"></i>
             
         </div>
-        <div><i class="fa-solid fa-cart-shopping-fast"></i>Carts</div>
+        <div><i class="fa-solid fa-cart-shopping-fast"></i>Cart</div>
         <div><i class="fa-solid fa-wallet"></i>Credits</div>
         <div><i class="fa-solid fa-user"></i>User</div>
     </div>
@@ -117,6 +117,10 @@
 
     <h1>VEGETABLES</h1>
     <hr>
+    <div class = "left_right">
+        <div><button onClick = "PlusVegLeft()">&lt;</button></div>
+        <div><button onClick = "PlusVegRight()">&gt;</button></div>
+    </div>
     <div id = "vegetables">
         <!-- Need to add Vegetables List -->
     </div>
@@ -268,7 +272,7 @@
 
 
 </html>
-
+<!-- <script src = "index.js"></script> -->
 <script>
     var swiper = new Swiper('.swiper', {
         autoplay: {
@@ -354,9 +358,9 @@
           left = 0;
           right = 5;
           DisplayData(mangoesData,left,right);
-      }else
+      }
+      else
       {
-        // console.log(right,left) ;
       DisplayData(mangoesData,left,right);
       }
       
@@ -370,12 +374,11 @@
           right = mangoesData.length;
           left = mangoesData.length-5
           DisplayData(mangoesData,left,right);
+          
       }
-      else{
-
-      
-     // console.log(right,left) ;
-      DisplayData(mangoesData,left,right);
+      else
+      {
+         DisplayData(mangoesData,left,right);
       }
       
   }
@@ -383,6 +386,7 @@
   DisplayData(mangoesData,left,right);
 
      function DisplayData(arr,left,right){   
+      
         document.querySelector("#mangoes").innerHTML = null;
             for(var i = left ; i<right ; i++){
 
@@ -429,5 +433,95 @@
          }
 
      }
+
+var dailyData = JSON.parse(localStorage.getItem("dailyArr"));
+
+function PlusVegLeft(){
+      right = right - 1;
+      left = left - 1;
+
+      if(left < 0){
+          left = 0;
+          right = 5;
+          
+          DailyVegData(dailyData,left,right)
+      }else
+      {
+        // console.log(right,left) ;
+      
+      DailyVegData(dailyData,left,right)
+      }
+      
+  }
+
+function PlusVegRight(){
+      right = right + 1;
+      left = left + 1;
+
+      if(right>dailyData.length){
+          right = dailyData.length;
+          left = dailyData.length-5
+          
+          DailyVegData(dailyData,left,right)
+      }
+      else{
+
+     // console.log(right,left) ;
+      
+      DailyVegData(dailyData,left,right)
+      }
+      
+  }
+
+DailyVegData(dailyData,left,right)
+
+function DailyVegData(arr,left,right){   
+      
+      document.querySelector("#vegetables").innerHTML = null;
+          for(var i = left ; i<right ; i++){
+
+          var box = document.createElement("div");
+
+          var pimg = document.createElement("img");
+          pimg.src = arr[i].img;
+
+          var pname = document.createElement("p");
+          pname.innerText = arr[i].name;
+
+          var pquantity = document.createElement("p");
+          pquantity.innerText = arr[i].quantity;
+
+          var pprice = document.createElement("h5");
+          pprice.innerText = "₹" + arr[i].price;
+          pprice.style.fontSize = "16px";
+
+          var pstrike_price = document.createElement("h5");
+          if (arr[i].strike_price == "") {
+              pstrike_price.innerText = arr[i].strike_price;
+          }
+          else {
+              pstrike_price.innerText = "₹" + arr[i].strike_price;
+          }
+
+          var cart = document.createElement("button");
+          cart.innerText = "ADD";
+          cart.addEventListener("click", function () {
+              Add(arr[i]);
+          })
+
+          var boxin = document.createElement("div");
+
+          var pricestore = document.createElement("div");
+
+          pricestore.append(pprice, pstrike_price, cart)
+
+          boxin.append(pname, pquantity, pricestore)
+
+          box.append(pimg, boxin);
+
+          document.querySelector("#vegetables").append(box);
+       }
+
+   }
         
 </script>
