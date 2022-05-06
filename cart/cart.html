@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fraazo | Buy Fruites & Vegetables Online</title>
     <link rel="stylesheet" href="cart.css" />
+    <script src="https://kit.fontawesome.com/60de47e3f5.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div id="navbar">
@@ -30,29 +31,17 @@
         <i class="fa-solid fa-magnifying-glass"></i>
       </div>
       <div style="font-size: 13px">
-        <i class="fa-solid fa-cart-shopping-fast"></i>
-        <img
-          src="https://cdn-icons.flaticon.com/png/128/2838/premium/2838838.png?token=exp=1651691374~hmac=5978e7ecdd89bb71b2be0337c9ca4d13"
-          alt=""
-          style="height: 20px; width: 20px"
-        />Carts
+        <i class="fa-solid fa-cart-shopping"></i>
+        Carts
       </div>
       <div style="font-size: 13px">
         <i class="fa-solid fa-wallet"></i>
-        <img
-          src="https://cdn-icons-png.flaticon.com/128/3037/3037247.png"
-          alt=""
-          style="height: 20px; width: 20px"
-        />
+        
         Credits
       </div>
       <div style="font-size: 13px">
         <i class="fa-solid fa-user"></i>
-        <img
-          src="https://cdn-icons-png.flaticon.com/128/456/456212.png"
-          alt=""
-          style="height: 20px; width: 20px"
-        />
+        
         User
       </div>
     </div>
@@ -70,11 +59,16 @@
       >
         My Cart
       </h1>
-      <div id="details"></div>
-      <div id="container"></div>
-      <div style="float: right; padding-right: 50px">
-        <button id="Checkout">Checkout</button>
+      <div id="root">
+        <div id="price-checkout">
+            <div id="details"></div>
+            <div>
+                <button id="Checkout">Checkout</button>
+            </div>
+        </div>
+        <div id="container"></div>
       </div>
+     
     </div>
 
     <div id="foooter-cloud">
@@ -159,6 +153,9 @@
       var name = document.createElement("p");
       name.innerText = elem.name;
 
+      var quantity = document.createElement('p')
+      quantity.innerText = elem.quantity
+
       var innerDiv = document.createElement("div");
 
       var price = document.createElement("p");
@@ -168,23 +165,23 @@
       strike_price.innerText = elem.strike_price;
 
       var inc = document.createElement("button");
-      inc.innerText = "+";
+      inc.innerHTML = `<i class="fa-solid fa-plus"></i>`;
       inc.addEventListener("click", function () {
         incfun(elem);
       });
 
       var dec = document.createElement("button");
-      dec.innerText = "-";
+      dec.innerHTML = `<i class="fa-solid fa-minus"></i>`;
       dec.addEventListener("click", function () {
         decfun(elem);
       });
 
-      var quantity = document.createElement("p");
-      quantity.innerText = elem.quantity;
+      var quant = document.createElement("p");
+      quant.innerText = elem.qty;
 
       var qdiv = document.createElement("div");
-      qdiv.append(dec, quantity, inc);
-      qdiv.id = "";
+      qdiv.append(dec, quant, inc);
+      qdiv.id = "quantity-btn";
 
       var remove = document.createElement("p");
       remove.innerText = "Remove";
@@ -195,7 +192,7 @@
       innerDiv.append(price, strike_price);
       innerDiv.setAttribute("class", "priceDiv");
 
-      mainDiv.append(img, name, innerDiv, qdiv, remove);
+      mainDiv.append(img, name, quantity,innerDiv, qdiv, remove);
 
       container.append(mainDiv);
     });
@@ -209,7 +206,7 @@
 
   function totalPriceFn() {
     total = cartArr.reduce(function (acc, elem) {
-      return acc + elem.price * elem.quantity;
+      return acc + elem.price * elem.qty;
     }, 0);
 
     totalPrice.innerText = "Total Price: " + total;
@@ -241,17 +238,17 @@
   }
 
   function incfun(elem) {
-    elem.quantity++;
+    elem.qty++;
     localStorage.setItem("cartadd", JSON.stringify(cartArr));
     appendData(cartArr);
     totalPriceFn();
   }
 
   function decfun(elem) {
-    if (elem.quantity == 1) {
+    if (elem.qty == 1) {
       removeFn(elem);
     } else {
-      elem.quantity--;
+      elem.qty--;
       localStorage.setItem("cartadd", JSON.stringify(cartArr));
       appendData(cartArr);
       totalPriceFn();

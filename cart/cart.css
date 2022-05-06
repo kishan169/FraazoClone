@@ -51,15 +51,32 @@ body{
 }
 
   /* <!-- -------------------------------------------------------cart----------------------------------------------------------- --> */
-
+    #root{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 90%;
+        margin: auto;
+        /* border: 1px solid; */
+    }
+    #price-checkout{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* border: 1px solid red; */
+        height: 250px;
+        /* margin-right: 60px; */
+        width: 15%;
+    }
   #container {
-    width: 60%;
-    margin: 0 auto;
+    width: 80%;
+    /* margin: 0 auto; */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
-    gap: 40px;
+    gap: 10px;
     color: black;
+    /* border: 1px solid red; */
 }
 #Checkout{
     cursor: pointer;
@@ -68,16 +85,17 @@ body{
     color: white;
     border-radius: 8px;
     display: block;
-    align-content: center;
+    /* align-content: center; */
     border: none;
     align-items: right;
+    /* margin: auto; */
 }
 #details{
     width: auto;
     display: block;
-    align-items: right;
-    align-content: center;
-    padding-left: 60px;
+    /* align-items: right; */
+    /* align-content: center; */
+    /* padding-left: 60px; */
 }
 #details>p{
     color: black;
@@ -86,10 +104,43 @@ body{
 #container>div>div>p{
     color: black;
 }
+
 #container>div>p{
     color: black;
 }
+#quantity-btn{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 30px;
+    width: 90px;
+    /* border: 1px solid red; */
+}
+#quantity-btn>button{
+    height: 30px;
+    width:33px;
+    border: none;
+    border: 1px solid teal;
+    background-color: #fff;
+   
+}
+#quantity-btn>p{
+    height: 30px;
+    width:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#quantity-btn>button:first-child{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
 
+}
+#quantity-btn>button:last-child{
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+
+}
 
   /* <!-- -------------------------------------------------------FOOTER----------------------------------------------------------- --> */
   #foooter-cloud{
