@@ -18,9 +18,10 @@
         <div id = "area">
             <i class="fa-solid fa-location-dot"></i>
             <select name="" id="city">
+                <option value="">Home</option>
                 <option value="">Ahmedabad</option>
-                <option value="">Surat</option>
-                <option value="">baroda</option>
+                <option value="">Mumbai</option>
+                <option value="">Banglore</option>
             </select>
         </div>
         <div id = "search">
@@ -73,12 +74,12 @@
     <!-- ----------------------------------------------------BEST DEALS----------------------------------------------------------------- -->
     <h1>Best Deals</h1>
     <hr>
+    <div class = "left_right">
+        <div><button onClick = "PlusBestLeft()">&lt;</button></div>
+        <div><button onClick = "PlusBestRight()">&gt;</button></div>
+    </div>
     <div id = "best-deals">
-        <div class = "left_right">
-            <div><button onClick = "PlusBestLeft()">&lt;</button></div>
-            <div><button onClick = "PlusBestRight()">&gt;</button></div>
-        </div>
-        
+            
     </div>
 
     <!-- -----------------------------------------------------CATEGORIES----------------------------------------------------------------- -->
@@ -290,9 +291,11 @@
 
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-
 </html>
+
 <!-- <script src = "index.js"></script> -->
+
+
 <script>
     var swiper = new Swiper('.swiper', {
         autoplay: {
