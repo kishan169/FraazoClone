@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" type="image/png" href="Images/favicon.ico">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
-    <link rel="stylesheet" href="common.css">
-    <title>Fraazo Buy Fruites & Vegetables Online</title>
+    <link rel="stylesheet" href="Css/common.css">
+    <link rel="stylesheet" href="Css/acordian.css">
+    <link rel="stylesheet" href="Css/index_product.css">
+    <link rel="stylesheet" href="Css/login.css">
+    <title>Fraazo | Buy Fruites & Vegetables Online</title>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     
@@ -14,27 +21,77 @@
 <body>
     <div id = "navbar">
         <div id = "logo">
-            <img src = "C:\Users\anpat\OneDrive\Desktop\Project\download.png"/> </div>
+            <a href="index.html"><img src="Images/download.png" /></a>
+        </div>
         <div id = "area">
             <i class="fa-solid fa-location-dot"></i>
             <select name="" id="city">
+                <option value="">Home</option>
                 <option value="">Ahmedabad</option>
-                <option value="">Surat</option>
-                <option value="">baroda</option>
+                <option value="">Mumbai</option>
+                <option value="">Banglore</option>
             </select>
         </div>
         <div id = "search">
             <input type="text" placeholder = "find fresh-vegetables,fruits and dairy...">
             <i class="fa-solid fa-magnifying-glass"></i>
-            
         </div>
-        <div><i class="fa-solid fa-cart-shopping-fast"></i>Carts</div>
-        <div><i class="fa-solid fa-wallet"></i>Credits</div>
-        <div><i class="fa-solid fa-user"></i>User</div>
+        <div><i class="fa-solid fa-cart-shopping-fast"></i><a href="cart.html">Cart<span id="carttop"></span></span></a></div>
+        <div><i class="fa-solid fa-wallet"></i><a href="credits.html">Credits</a></div>
+        <div><i class="fa-solid fa-user"></i><div id="user">Login</div></div>
     </div>
 
     <!-- ----------------------------------------------------DASHBOARD PHOTOS----------------------------------------------------------------- -->
 
+    <!-- xxxxxxxxxxxxxxxx  LOGIN XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+    <div class="signup-cont">
+        <button id="close-btn">&times;</button>
+        <div class="login-body">
+            <h2>Welcome to Fraazo!</h2> 
+            <p>Sign In to track your Order and More.</p>
+            <p id="upMobileText"></p>
+            <input type="text" placeholder="Enter your Mobile Number" id="number">
+            <p>We will send you an OTP on this number</p>
+            <button id="get-otp">Get OTP</button>
+        </div>
+    </div>
+    <div id="overlay" class=""></div>
+
+    <div class="otp-container">
+        <button id="close-btn2">&times;</button>
+        <div class="login-body">
+            <h2>Welcome to Fraazo!</h2> 
+            <p>Sign In to track your Order and More.</p>
+            <p id="upMobileText"></p>
+            <input type="text" placeholder="Enter 6-Digit OTP" id="fill-otp">
+            <p>OTP has been sent to <span id="spana"></span> <br>
+                Haven't received your OTP yet?</p>
+            <button id="check-otp">Continue</button>
+        </div>
+    </div>
+
+    <div class="customer-info">
+        <button id="close-btn3">&times;</button>
+        <h2>Hello New Customer</h2>
+        <p>Register now for Unbelievable Discounts.</p>
+        <form id="info-form">
+            <div id="names-div">
+                <input type="text" placeholder="First Name" id="firstName">
+                <input type="text" placeholder="Last Name" id="lastName">
+            </div>
+            <input type="email" placeholder="Email id" id="email">
+            <input type="number" placeholder="Mobile No." id="mobileNumber">
+            <div id="status">
+                <label for="title">Title :  <label for="m">Mr.</label> </label> <input type="radio" id="mr" name="title" >  <label for="mrs">Mrs.</label> <input type="radio" id="mrs" name="title" > <label for="miss">Miss</label> <input type="radio" id="miss" name="title" >
+            </div>
+            <input type="submit" id="final-submit">
+        </form>
+        
+        
+    </div>
+
+    <!-- xxxxxxxxxxxxxxxx  LOGIN XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
     
     
     <div id = "first-screen">
@@ -47,7 +104,10 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide"><img src="https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/2336.png?1651525667" alt=""></div>
+                <div class="swiper-slide"><img src="https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/2715.png?1651736076" alt=""></div>
+                <div class="swiper-slide"><img src="https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/2341.png?1649317876" alt=""></div>
+                <div class="swiper-slide"><img src="https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/1858.png?1651669334" alt=""></div>
+                <div class="swiper-slide"><img src="https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/1860.png?1651669463" alt=""></div>
                 <div class="swiper-slide"><img src="https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/2459.png?1651525525" alt=""></div>
                 <div class="swiper-slide"><img src="https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/2460.png?1651525594" alt=""></div>
                 <div class="swiper-slide"><img src="https://s3.ap-south-1.amazonaws.com/fraazo-prod/web_ban/2166.png?1651056728" alt=""></div>
@@ -61,28 +121,32 @@
 
         <!-- ----------------------------------------------------RIGHTSIDE PART------------------------------------------------------------ -->
         <div id = "right_side">
-            <div><img src = "https://fraazo.com/static/Web1-cafcda6bf22c11e6bbaed467d13a0eb7.png"/></div>
-            <div><img src = "https://fraazo.com/static/Web2-9a152d86240414d76ce205c491e47c4e.png"/></div>
-            <div><img src = "https://fraazo.com/static/Web3-9f5a46f22ff99bcfe079257218356413.png"/></div>
+            <div><img src = "Images/right1.png"/></div>
+            <div><img src = "Images/right2.png"/></div>
+            <div><img src = "Images/right3.png"/></div>
         </div>
     </div>
 
     <!-- ----------------------------------------------------BEST DEALS----------------------------------------------------------------- -->
     <h1>Best Deals</h1>
     <hr>
-    <div id = "best-deals">
-        
+    <div class = "left_right">
+        <div><button onClick = "PlusBestLeft()">&lt;</button></div>
+        <div><button onClick = "PlusBestRight()">&gt;</button></div>
+    </div>
+    <div class="setmedia" id = "best-deals">
+            
     </div>
 
     <!-- -----------------------------------------------------CATEGORIES----------------------------------------------------------------- -->
 
     <div id = "category">
-        <div id = "mng"><a href = "products.html"><img src = "https://s3.ap-south-1.amazonaws.com/fraazo-prod/web/298.png?1647330831"/></a></div>
-        <div id = "fruit"><a href = "https://fraazo.com/listing/mangoes/mangoes"><img src = "https://fraazo-master.s3.ap-south-1.amazonaws.com/webban/Fruits.png"/></a></div>
-        <div id  ="veget"><a href = "https://fraazo.com/listing/mangoes/mangoes"><img src = "https://fraazo-master.s3.ap-south-1.amazonaws.com/webban/Vegetables.png"/></a></div>
-        <div id = "hrbs"><a href = "https://fraazo.com/listing/mangoes/mangoes"><img src = "https://s3.ap-south-1.amazonaws.com/fraazo-prod/web/1.png?1619161151"/></a></div>
-        <div id = "drfrt"><a href = "https://fraazo.com/listing/mangoes/mangoes"><img src = "https://s3.ap-south-1.amazonaws.com/fraazo-prod/web/201.png?1635224001"/></a></div>
-        <div id = "kchnstpl"><a href = "https://fraazo.com/listing/mangoes/mangoes"><img src = "https://s3.ap-south-1.amazonaws.com/fraazo-prod/web/199.png?1635058415"/></a></div>
+        <div id = "mng"><a href = "page1_mangoPage.html"><img src = "https://s3.ap-south-1.amazonaws.com/fraazo-prod/web/298.png?1647330831"/></a></div>
+        <div id = "fruit"><a href = "page2_applesPage.html"><img src = "https://fraazo-master.s3.ap-south-1.amazonaws.com/webban/Fruits.png"/></a></div>
+        <div id  ="veget"><a href = "page3_dailyPage.html"><img src = "https://fraazo-master.s3.ap-south-1.amazonaws.com/webban/Vegetables.png"/></a></div>
+        <div id = "hrbs"><a href = "page4_herbsPage.html"><img src = "https://s3.ap-south-1.amazonaws.com/fraazo-prod/web/1.png?1619161151"/></a></div>
+        <div id = "drfrt"><a href = "page5_dryfruitsPage.html"><img src = "https://s3.ap-south-1.amazonaws.com/fraazo-prod/web/201.png?1635224001"/></a></div>
+        <div id = "kchnstpl"><a href = "page6_kitchenPowderPage.html"><img src = "https://s3.ap-south-1.amazonaws.com/fraazo-prod/web/199.png?1635058415"/></a></div>
 
     </div>
 
@@ -91,15 +155,26 @@
 
     <h1>MANGOES</h1>
     <hr>
-    <div id = "mangoes">
+    <div class = "left_right">
+        <div><button onClick = "PlusLeft()">&lt;</button></div>
+        <div><button onClick = "PlusRight()">&gt;</button></div>
+    </div>
+    
+    <div class="setmedia" id = "mangoes">
         <!-- Need to add mangoes list -->
+        
     </div>
 
     <!-- --------------------------------------------------FRUITES------------------------------------------------------------------ -->
 
     <h1>FRUITES</h1>
     <hr>
-    <div id = "fruites">
+    <div class = "left_right">
+        <div><button onClick = "PlusFruiteLeft()">&lt;</button></div>
+        <div><button onClick = "PlusFruiteRight()">&gt;</button></div>
+    </div>
+    
+    <div class="setmedia" id = "fruites">
         <!-- Need to add fruites list -->
     </div>
 
@@ -107,7 +182,11 @@
 
     <h1>VEGETABLES</h1>
     <hr>
-    <div id = "vegetables">
+    <div class = "left_right">
+        <div><button onClick = "PlusVegLeft()">&lt;</button></div>
+        <div><button onClick = "PlusVegRight()">&gt;</button></div>
+    </div>
+    <div class="setmedia" id = "vegetables">
         <!-- Need to add Vegetables List -->
     </div>
 
@@ -115,7 +194,11 @@
 
     <h1>HERBS</h1>
     <hr>
-    <div id = "herbs">
+    <div class = "left_right">
+        <div><button onClick = "PlusHerbsLeft()">&lt;</button></div>
+        <div><button onClick = "PlusHerbsRight()">&gt;</button></div>
+    </div>
+    <div class="setmedia" id = "herbs">
         <!-- Need to add herbs list -->
     </div>
 
@@ -123,15 +206,23 @@
 
     <h1>DRY FRUITS</h1>
     <hr>
-    <div id = "dryfruites">
+    <div class = "left_right">
+        <div><button onClick = "PlusDryLeft()">&lt;</button></div>
+        <div><button onClick = "PlusDryRight()">&gt;</button></div>
+    </div>
+    <div class="setmedia" id = "dryfruites">
         <!-- Need to add dryfruites list -->
     </div>
 
-    <!-- -------------------------------------------------KITCHEN STAPLES----------------------------------------------------------------- -->
+    <!-- -----------------------------------------------------Herbs----------------------------------------------------------------- -->
     
     <h1>KITCHEN STAPLES</h1>
     <hr>
-    <div id = "kitchen">
+    <div class = "left_right">
+        <div><button onClick = "PluskitchenLeft()">&lt;</button></div>
+        <div><button onClick = "PluskitchenRight()">&gt;</button></div>
+    </div>
+    <div class="setmedia" id = "kitchen">
         <!-- Need to add kitchen list -->
     </div>
 
@@ -150,8 +241,8 @@
             <div>
                 <p>Available On</p>
                 <!-- Image remaining -->
-                <img src = ""/>
-                <img src=""/>
+                <img src = "Images\dark play.png"/>
+                <img src="Images\dark play.png"/>
             </div>
         </div>
     </div>
@@ -167,7 +258,7 @@
             <!-- ---------------------------------------------------------------- -->
             <div>
                 <div id = "footer1">
-                    <img src = "C:\Users\anpat\OneDrive\Desktop\Project\download.png"/>
+                    <a href="index.html"><img src="Images/download.png" /></a>
                     <p>Order online vegetables & fruits
                         directly from the farm. Fraazo is
                         online platform that allows customer
@@ -177,14 +268,14 @@
             </div>
             <!-- ---------------------------------------------------------------- -->
             <div>
-                <p style = "color: white;"><b>USEFUL LINKS</b></p>
+                <p><b>USEFUL LINKS</b></p>
                 <p>Privacy & Policy</p>
                 <p>FAQ</p>
                 <p>Terms & Condition</p>
             </div>
             <!-- ---------------------------------------------------------------- -->
             <div>
-                <p style = "color: white;"><b>Cities We Serve</b></p>
+                <p><b>Cities We Serve</b></p>
                 <p>Mumbai</p>
                 <p>Hyderabad</p>
                 <p>Delhi</p>
@@ -196,7 +287,7 @@
             </div>
             <!-- ---------------------------------------------------------------- -->
             <div>
-                <p style = "color: white;"><b>Connect With Us</b></p>
+                <p><b>Connect With Us</b></p>
                 <p>Support@fraazo.com</p><br>
                 <p>+91 9152291522</p><br>
                 <p>102, We Work Vijay Diamond, A3 & B2,
@@ -206,8 +297,8 @@
                 <p><b>Download The App</b></p>
                 <br>
                 <div>
-                    <img src = "C:\Users\anpat\OneDrive\Desktop\Project\Play1.png"/>
-                    <img src = "C:\Users\anpat\OneDrive\Desktop\Project\Playstore.png"/>
+                    <img src = "Images/Play1.png"/>
+                    <img src = "Images/Playstore.png"/>
                 </div>
             </div>
             <!-- ---------------------------------------------------------------- -->
@@ -256,20 +347,11 @@
 
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-
 </html>
 
-<script>
-    var swiper = new Swiper('.swiper', {
-        autoplay: {
-            delay: 2000,
-            disableOnInteraction: false,
-        },
-
-        pagination: {
-        el: '.swiper-pagination',
-        clickable : true,
-        },
-
-    });
-</script>
+<!-- <script src = "index.js"></script> -->
+<script src="Js/product.js"></script>
+<script src="js/cartAdd.js"></script>
+<script src="js/index.js"></script>
+<script src="Js/login.js"></script>
+<script src="js/cartAdd.js"></script>
